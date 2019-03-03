@@ -1,0 +1,32 @@
+{
+  "name": "raspi_bot",
+  "version": "0.0.1",
+  "description": "Raspberry generic robot to use on iCity plataform",
+  "author": "Alcindo Schleder <alcindo@vocatiotelecom.com.br>",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.413.0",
+    "fibers": "^3.0.0",
+    "onoff": "^3.2.1",
+    "speaker": "^0.4.1",
+    "tjbot": "^1.5.1"
+  },
+  "main": "app.js",
+  "homepage": "https://www.vocatiotelecom.com.br/raspi_bots/",
+  "keywords": [
+    "tjbot",
+    "robots",
+    "raspibot"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:vocatio/rapibot.git"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
