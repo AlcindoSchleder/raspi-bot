@@ -41,6 +41,7 @@ let botStatus = config.STT.stop;
 let aws_tts = function(text) {
 	return new Promise(function(resolve, reject) {
 	//	awsParams.Text = '<speak><prosody rate="medium" volume="+10dB" pitch="+25%"><amazon:effect phonation="soft">' + text + '</amazon:effect></prosody></speak>';
+		// Parâmetros para modular a voz
 		awsParams.Text = '<speak><prosody rate="medium" volume="+5dB" pitch="+25%">' + text + '</prosody></speak>';
 		awsParams.TextType = 'ssml';
 		Polly.synthesizeSpeech(awsParams, function(err, res) {
@@ -76,6 +77,7 @@ let doConversation = function (msg) {
 					event.emit('start_cap');
 				}, 2000);
 			};
+			// aqui tem que religar o sensor de presença
 		});
 		//
 		// watson speech to text
@@ -108,6 +110,7 @@ let listenTimeout = function () {
 	if (botStatus == config.STT.listen) {
 		console.log('timeout! stop microphone listen...');
 		event.emit('stop_cap');
+		// aqui tem que religar o sensor de presença
 	} else {
 		console.log('.' + botStatus);
 	}
@@ -119,6 +122,7 @@ let getDetectMotion = function () {
 	pir.watch(function(err, value) {
 		if (err) Exit();
 		if ((value == 1) && (botStatus == config.STT.stop)) {
+			// aqui tem que desligar o sensor de presença
 			console.log("Motion Detected: %d", value);
 			doConversation('Oi.');
 		};
